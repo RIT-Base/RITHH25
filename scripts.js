@@ -1,106 +1,99 @@
-// JavaScript functionality
+// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a').forEach(anchor => {
+    // Get all action buttons
+    const actionButtons = document.querySelectorAll('.action-button');
+    
+    // Add click event listeners to all buttons
+    actionButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Create a ripple effect when button is clicked
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            
+            // Position the ripple where clicked
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            
+            // Add the ripple to the button
+            this.appendChild(ripple);
+            
+            // Remove ripple after animation completes
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+            
+            // Handle button actions - in a real app, these would navigate or perform specific functions
+            const buttonText = this.textContent.trim();
+            console.log(`Button clicked: ${buttonText}`);
+            
+            switch(buttonText) {
+                case 'Patch RIT Terbaru':
+                    console.log('Patch RIT dibuka');
+                    window.open('https://docs.google.com/document/d/1yeOLr0Wq4JR-z6UH9OtAqze144bh4w5gLYgrTu_SbYQ/edit?usp=sharing', '_blank');
+                    break;
+                case '':
+                    console.log();
+                    window.open('', '_blank')
+                    break
+
+            }
+        });
+    });
+    
+    // Add some animation to social icons on hover
+    const socialIcons = document.querySelectorAll('.social-icon');
+    
+    socialIcons.forEach(icon => {
+        icon.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.2)';
+        });
+        
+        icon.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+    
+    // Add smooth scroll behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            window.scrollTo({
-                top: targetElement.offsetTop - 70,
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
         });
     });
-
-    // Form validation and submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Basic form validation
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-            
-            if (!name || !email || !message) {
-                alert('Please fill in all fields');
-                return;
-            }
-            
-            if (!isValidEmail(email)) {
-                alert('Please enter a valid email address');
-                return;
-            }
-            
-            // Here you would typically send the form data to a server
-            // For demo purposes, we'll just show a success message
-            alert('Thank you for your message! We will get back to you soon.');
-            contactForm.reset();
-        });
-    }
     
-    // Simple email validation
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
-    // Example of a simple animation on scroll
-    window.addEventListener('scroll', function() {
-        const featureCards = document.querySelectorAll('.feature-card');
-        
-        featureCards.forEach(card => {
-            const cardPosition = card.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.3;
-            
-            if (cardPosition < screenPosition) {
-                card.style.opacity = '1';
-            }
-        });
-    });
-
-    // Initialize any components
-    initializeTestimonialSlider();
-});
-
-// Simple testimonial slider function
-function initializeTestimonialSlider() {
-    const testimonials = [
-        {
-            text: '"This template helped us launch our startup website in record time. The clean design and easy customization options were exactly what we needed."',
-            author: '- Jane Doe, CEO of StartupX'
-        },
-        {
-            text: '"I was able to deploy this site in minutes. The code is well-structured and easy to modify to fit our brand."',
-            author: '- John Smith, Developer'
-        },
-        {
-            text: '"The responsive design works perfectly across all our devices. Our customers love how professional our new site looks."',
-            author: '- Maria Garcia, Marketing Director'
+    // Add button ripple effect styles dynamically
+    const style = document.createElement('style');
+    style.textContent = `
+        .action-button {
+            position: relative;
+            overflow: hidden;
         }
-    ];
-
-    let currentIndex = 0;
-    const testimonialElement = document.querySelector('.testimonial');
-    const textElement = testimonialElement.querySelector('.testimonial-text');
-    const authorElement = testimonialElement.querySelector('.testimonial-author');
-
-    // Change testimonial every 5 seconds
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % testimonials.length;
         
-        // Fade out
-        testimonialElement.style.opacity = '0';
+        .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+            width: 100px;
+            height: 100px;
+            margin-left: -50px;
+            margin-top: -50px;
+        }
         
-        // Update content and fade in after a short delay
-        setTimeout(() => {
-            textElement.textContent = testimonials[currentIndex].text;
-            authorElement.textContent = testimonials[currentIndex].author;
-            testimonialElement.style.opacity = '1';
-        }, 500);
-        
-    }, 5000);
-}
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+});
