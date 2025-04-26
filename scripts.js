@@ -4,7 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const actionButtons = document.querySelectorAll('.action-button');
     
     // Add click event listeners to all buttons
-    actionButtons.forEach(button => {
+    actionButtons.forEach((button, index) => {
+        // Add slight delay to each button's appearance for a staggered effect
+        setTimeout(() => {
+            button.style.opacity = "1";
+            button.style.transform = "translateY(0)";
+        }, 100 * index);
+        
         button.addEventListener('click', function(e) {
             // Create a ripple effect when button is clicked
             const ripple = document.createElement('span');
@@ -26,25 +32,65 @@ document.addEventListener('DOMContentLoaded', function() {
                 ripple.remove();
             }, 600);
             
-            // Handle button actions - in a real app, these would navigate or perform specific functions
+            // Handle button actions based on button text
             const buttonText = this.textContent.trim();
             console.log(`Button clicked: ${buttonText}`);
             
-            switch(buttonText) {
-                case 'Patch RIT Terbaru':
-                    console.log('Patch RIT dibuka');
+            switch (buttonText) {
+                // Informasi Utama
+                case 'Poster Sosialisasi':
+                    console.log('Poster Sosialisasi dibuka');
+                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    break;
+                case 'Dokumen Lengkap':
+                    console.log('Dokumen Lengkap dibuka');
+                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    break;
+                case 'File Presentasi':
+                    console.log('File Presentasi dibuka');
+                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    break;
+            
+                // Informasi Tiap Cabang Divisi
+                case 'Web Developer':
+                    console.log('Informasi Web Developer dibuka');
+                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    break;
+                case 'Game Developer':
+                    console.log('Informasi Game Developer dibuka');
+                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    break;
+                case 'Internet of Things':
+                    console.log('Informasi Internet of Things dibuka');
+                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    break;
+                case 'Cyber Security':
+                    console.log('Informasi Cyber Security dibuka');
+                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    break;
+                case 'Media Center':
+                    console.log('Informasi Media Center dibuka');
+                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    break;
+                case 'Gaming Enthusiast':
+                    console.log('Informasi Gaming Enthusiast dibuka');
+                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    break;
+            
+                // Informasi Tambahan
+                case 'Detail Patch RIT':
+                    console.log('Detail Patch RIT dibuka');
                     window.open('https://docs.google.com/document/d/1yeOLr0Wq4JR-z6UH9OtAqze144bh4w5gLYgrTu_SbYQ/edit?usp=sharing', '_blank');
                     break;
-                case '':
-                    console.log();
-                    window.open('', '_blank')
-                    break
-
-            }
+            
+                default:
+                    console.log('Tidak ada aksi untuk tombol ini.');
+                    break;
+            }            
         });
     });
     
-    // Add some animation to social icons on hover
+    // Add animation to social icons
     const socialIcons = document.querySelectorAll('.social-icon');
     
     socialIcons.forEach(icon => {
@@ -57,43 +103,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add smooth scroll behavior
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+    // Initialize button appearance with slight stagger effect
+    actionButtons.forEach((button, index) => {
+        // Set initial styles for animation
+        button.style.opacity = "0";
+        button.style.transform = "translateY(20px)";
+        button.style.transition = "all 0.3s ease";
     });
     
-    // Add button ripple effect styles dynamically
-    const style = document.createElement('style');
-    style.textContent = `
-        .action-button {
-            position: relative;
-            overflow: hidden;
-        }
+    // Add hover effect that slightly enlarges button text
+    actionButtons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.letterSpacing = "0.5px";
+        });
         
-        .ripple {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            pointer-events: none;
-            width: 100px;
-            height: 100px;
-            margin-left: -50px;
-            margin-top: -50px;
-        }
-        
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
+        button.addEventListener('mouseleave', function() {
+            this.style.letterSpacing = "0";
+        });
+    });
 });
