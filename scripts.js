@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     break;
                 case 'Game Developer':
                     console.log('Informasi Game Developer dibuka');
-                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    window.open('https://drive.google.com/file/d/1PByjbN90dKDucyd5QGts1MxyjVTtjsu0/view?usp=drive_link', '_blank');
                     break;
                 case 'Internet of Things':
                     console.log('Informasi Internet of Things dibuka');
