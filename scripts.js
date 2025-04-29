@@ -62,11 +62,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     break;
                 case 'Internet of Things':
                     console.log('Informasi Internet of Things dibuka');
-                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    window.open('https://docs.google.com/document/d/1ESt00JU8Qn_n8tFJi18bYlnX1T96zrnR6Yx2HhYWn4k/edit?usp=sharing', '_blank');
                     break;
                 case 'Cyber Security':
                     console.log('Informasi Cyber Security dibuka');
-                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    window.open('https://pastebin.com/raw/gJZ1ctuc', '_blank');
                     break;
                 case 'Media Center':
                     console.log('Informasi Media Center dibuka');
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     break;
                 case 'Gaming Enthusiast':
                     console.log('Informasi Gaming Enthusiast dibuka');
-                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    window.open('https://drive.google.com/file/d/1uLOI8ll2Y37JQNFMXWIETw2tSwhyGNsb/view?usp=sharing', '_blank');
                     break;
             
                 // Informasi Tambahan
