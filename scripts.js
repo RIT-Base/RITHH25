@@ -38,23 +38,19 @@ document.addEventListener('DOMContentLoaded', function() {
             
             switch (buttonText) {
                 // Informasi Utama
-                case 'Poster Sosialisasi':
-                    console.log('Poster Sosialisasi dibuka');
-                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
-                    break;
                 case 'Dokumen Lengkap':
                     console.log('Dokumen Lengkap dibuka');
-                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    window.open('https://drive.google.com/file/d/1X6XCaenOfUxZmrUUiTKGz4ZPx_XtXOet/view?usp=sharing', '_blank');
                     break;
                 case 'File Presentasi':
                     console.log('File Presentasi dibuka');
-                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    window.open('https://docs.google.com/presentation/d/1XXvvq87j0v9hGEsV-V57-jp6itc1WmyQ/edit?usp=sharing&ouid=102082681106223856857&rtpof=true&sd=true', '_blank');
                     break;
             
                 // Informasi Tiap Cabang Divisi
                 case 'Web Developer':
                     console.log('Informasi Web Developer dibuka');
-                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    window.open('https://docs.google.com/document/d/14ET4LBHwRe0O7wPchFLep0hZfqPXCRg1569U8VXxYk8/edit?usp=sharing', '_blank');
                     break;
                 case 'Game Developer':
                     console.log('Informasi Game Developer dibuka');
@@ -70,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     break;
                 case 'Media Center':
                     console.log('Informasi Media Center dibuka');
-                    window.open('https://docs.google.com/document/d/1PqWqvIIgnOPD-9Yq5A_-Z5qNyEfOBdOPf02PIW-G6MU/edit?usp=sharing', '_blank');
+                    window.open('https://docs.google.com/document/d/1lw2o2FaJj5N5L4XAxg6ueINiQGGrQ0u-0ZZtzorHrMo/edit?usp=sharing', '_blank');
                     break;
                 case 'Gaming Enthusiast':
                     console.log('Informasi Gaming Enthusiast dibuka');
