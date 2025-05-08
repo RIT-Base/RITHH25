@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     break;
                 case 'Cyber Security':
                     console.log('Informasi Cyber Security dibuka');
-                    window.open('https://pastebin.com/raw/gJZ1ctuc', '_blank');
+                    window.open('https://docs.google.com/document/d/1kp-vaopfEMXE1R8HzaL-Kw7CEqwd-LX0XBe4X0cUPQc/edit?usp=sharing', '_blank');
                     break;
                 case 'Media Center':
                     console.log('Informasi Media Center dibuka');
